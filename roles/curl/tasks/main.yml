@@ -1,0 +1,5 @@
+---
+# tasks file for curl
+- name: Install curl
+  apk:
+    name: curl

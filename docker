@@ -1,0 +1,2 @@
+app ansible_host=app ansible_python_interpreter=/usr/local/bin/python
+web ansible_host=web ansible_python_interpreter=/usr/local/bin/python

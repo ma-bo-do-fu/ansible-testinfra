@@ -1,4 +1,4 @@
-# ansible-testinfra
+# ansible-test
 
 ```
 $ansible-galaxy install -r roles.yml -p roles/galaxy

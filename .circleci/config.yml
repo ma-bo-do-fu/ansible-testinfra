@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: wptfqp/cci-ansible-testinfra
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: build
+          command: |
+            docker-compose up -d
+            ansible-galaxy install -r roles.yml -p roles/galaxy
+            ansible-playbook site.yml -i docker -c docker
+            py.test --hosts='docker://web' tests/test_app.py  -v
+            py.test --hosts='docker://web' tests/test_web.py  -v
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
