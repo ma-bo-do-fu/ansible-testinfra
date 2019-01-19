@@ -1,0 +1,15 @@
+version: "3"
+services:
+  app:
+    build: dockerfiles/app/
+    container_name: app
+    tty: true
+    privileged: true
+
+  web:
+    build: dockerfiles/web/
+    ports:
+      - "8080:80"
+    container_name: web
+    tty: true
+    privileged: true
